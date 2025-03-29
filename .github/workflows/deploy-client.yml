@@ -37,11 +37,11 @@ jobs:
           source: "Client/publish/*"
           target: ${{ secrets.VPS_DEPLOY_PATH }}
 
-      - name: Reload Nginx
-        uses: appleboy/ssh-action@v0.1.10
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          port: ${{ secrets.VPS_PORT }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: sudo systemctl reload nginx
+      # - name: Reload Nginx
+      #   uses: appleboy/ssh-action@v0.1.10
+      #   with:
+      #     host: ${{ secrets.VPS_HOST }}
+      #     username: ${{ secrets.VPS_USER }}
+      #     port: ${{ secrets.VPS_PORT }}
+      #     key: ${{ secrets.SSH_PRIVATE_KEY }}
+      #     script: sudo systemctl reload nginx
