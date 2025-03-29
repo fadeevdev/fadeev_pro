@@ -26,6 +26,11 @@ jobs:
 
       - name: Publish Blazor WebAssembly
         run: dotnet publish -c Release -o publish
+      
+      - name: Prepare deployment folder
+        run: |
+          mkdir temp_deploy
+          cp -r Client/publish/wwwroot/* temp_deploy/
 
       - name: Copy files to VPS
         uses: appleboy/scp-action@v0.1.4
@@ -34,9 +39,8 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           port: ${{ secrets.VPS_PORT }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "Client/publish/wwwroot/*"
+          source: "temp_deploy/*"
           target: ${{ secrets.VPS_DEPLOY_PATH }}
-          strip_components: 4
 
       # - name: Reload Nginx
       #   uses: appleboy/ssh-action@v0.1.10
