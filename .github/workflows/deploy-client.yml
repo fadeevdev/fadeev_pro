@@ -30,7 +30,7 @@ jobs:
       - name: Prepare deployment folder
         run: |
           mkdir temp_deploy
-          cp -r Client/publish/wwwroot/* temp_deploy/
+          cp -r publish/wwwroot/* temp_deploy/
 
       - name: Copy files to VPS
         uses: appleboy/scp-action@v0.1.4
