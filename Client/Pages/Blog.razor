@@ -1,33 +1,21 @@
 @page "/blog"
 
-@using Shared.Models
-@inject HttpClient Http
+<section class="fade-in">
+    <h1 class="text-3xl font-bold mb-4">Блог</h1>
+    <p class="text-gray-400 mb-8">Мои заметки о разработке, .NET, фронтенде и других интересных темах.</p>
 
-<h1>Blog</h1>
-
-@if (posts == null)
-{
-  <p>Loading...</p>
-}
-else
-{
-  @foreach (var post in posts)
-  {
-    <div class="post">
-      <h2>@post.Title</h2>
-      <p>@post.Content</p>
-      <small>@post.CreatedAt.ToLocalTime()</small>
-      <hr />
-    </div>
-  }
-}
-
-@code {
-  List<BlogPost>? posts;
-
-  protected override async Task OnInitializedAsync()
-  {
-    posts = await Http.GetFromJsonAsync<List<BlogPost>>("api/Blog");
-  }
-}
-
+    <ul class="space-y-6">
+        <li>
+            <a href="#" class="block hover:underline">
+                <h2 class="text-xl font-semibold">Как я перешёл на Blazor WebAssembly</h2>
+                <p class="text-gray-500 text-sm">28 марта 2025</p>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="block hover:underline">
+                <h2 class="text-xl font-semibold">Почему я больше не использую Bootstrap</h2>
+                <p class="text-gray-500 text-sm">26 марта 2025</p>
+            </a>
+        </li>
+    </ul>
+</section>

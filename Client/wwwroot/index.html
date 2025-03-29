@@ -4,20 +4,51 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Client</title>
+
+    <meta property="og:title" content="Fadeev — .NET Developer" />
+    <meta property="og:description" content="Portfolio and blog of a regulat .NET developer" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://fadeev.pro" />
+    <meta property="og:image" content="https://fadeev.pro/og-image.png" />
+
+    <title>fadeev.pro</title>
+
     <base href="/" />
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+
     <link rel="stylesheet" href="css/app.css" />
     <link rel="icon" type="image/png" href="favicon.png" />
     <link href="Client.styles.css" rel="stylesheet" />
+
+    <script>
+        window.toggleTheme = () => {
+            const body = document.body;
+            const isLight = body.classList.contains('light');
+
+            // Через 50ms меняем тему и обновляем переменные
+            setTimeout(() => {
+                body.classList.toggle('light');
+                const newTheme = body.classList.contains('light') ? 'light' : 'dark';
+                localStorage.setItem('theme', newTheme);
+            }, 50);
+        };
+
+        window.isLightTheme = () => {
+            return document.body.classList.contains('light');
+        };
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const saved = localStorage.getItem('theme');
+            if (saved === 'light') document.body.classList.add('light');
+        });
+    </script>
+
+
 </head>
+
 
 <body>
     <div id="app">
-        <svg class="loading-progress">
-            <circle r="40%" cx="50%" cy="50%" />
-            <circle r="40%" cx="50%" cy="50%" />
-        </svg>
         <div class="loading-progress-text"></div>
     </div>
 

@@ -20,3 +20,13 @@
     font-weight: 700;
     text-decoration: none;
 }
+
+.theme-button {
+    text-decoration: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}

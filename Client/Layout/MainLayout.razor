@@ -1,14 +1,48 @@
 ﻿@inherits LayoutComponentBase
 
-<PageTitle>Fadeev.PRO</PageTitle>
+@inject IJSRuntime JS
 
-<div class="layout">
-    <header class="top-bar">
-        <span class="logo">🧑‍💻 Fadeev.PRO</span>
-        <NavMenu />
+<main class="min-h-screen px-4 py-8 text-white bg-black font-sans">
+    <header class="mt-0 pt-0 flex justify-between items-center">
+        <a href="/" class="text-xl font-bold hover:opacity-80 transition-opacity">fadeev.pro</a>
+        <nav class="space-x-6 text-sm flex items-center">
+            <a href="/" class="hover:underline">home</a>
+            <a href="/blog" class="hover:underline">blog</a>
+            <a href="/projects" class="hover:underline">projects</a>
+            <button @onclick="ToggleTheme" class="theme-button ml-4 text-xl transition-opacity hover:opacity-80"
+                title="Toggle theme">
+                @if (isLight)
+                {
+                    <span>🌙</span>
+                }
+                else
+                {
+                    <span>🌞</span>
+                }
+            </button>
+        </nav>
     </header>
-
-    <main class="main-content">
+    <div class="max-w-3xl mx-auto fade-in">
         @Body
-    </main>
-</div>
+    </div>
+</main>
+
+@code {
+    private bool isLight;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            isLight = await JS.InvokeAsync<bool>("isLightTheme");
+            StateHasChanged();
+        }
+    }
+
+    private async Task ToggleTheme()
+    {
+        isLight = !isLight;
+        await JS.InvokeVoidAsync("toggleTheme");
+    }
+}
+
