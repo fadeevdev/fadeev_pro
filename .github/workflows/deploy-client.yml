@@ -34,7 +34,7 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           port: ${{ secrets.VPS_PORT }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "publish/wwwroot/*"
+          source: "Client/publish/wwwroot/*"
           target: ${{ secrets.VPS_DEPLOY_PATH }}
 
       # - name: Reload Nginx
