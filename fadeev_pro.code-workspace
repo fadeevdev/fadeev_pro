@@ -1,0 +1,17 @@
+{
+    "folders": [
+      {
+        "path": "Client"
+      },
+      {
+        "path": "Server"
+      },
+      {
+        "path": "Shared"
+      }
+    ],
+    "settings": {
+      "terminal.integrated.defaultProfile.linux": "bash"
+    }
+  }
+  

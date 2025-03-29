@@ -1,0 +1,41 @@
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+a.nav-link {
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 1rem;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 2px;
+    transition: color 0.2s ease;
+}
+
+/* Подчёркивание — строгое, тонкое */
+a.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+    background-color: var(--text-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease;
+}
+
+a.nav-link:hover::after,
+a.nav-link.active::after {
+    transform: scaleX(1);
+}
+
+a.nav-link:hover,
+a.nav-link.active {
+    color: var(--text-accent);
+}

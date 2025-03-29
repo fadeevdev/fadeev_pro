@@ -1,0 +1,26 @@
+{
+    "name": "Blazor Fullstack Dev",
+    "build": {
+      "dockerfile": "Dockerfile",
+      "context": ".."
+    },
+    "workspaceFolder": "/workspaces/fadeev_pro",
+    "forwardPorts": [5000, 5002],
+    "postCreateCommand": "dotnet restore",
+    "postStartCommand": "dotnet watch --project Server --urls http://0.0.0.0:5000 & dotnet watch --project Client --urls http://0.0.0.0:5002",
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "ms-dotnettools.csharp",
+          "esbenp.prettier-vscode",
+          "dbaeumer.vscode-eslint",
+          "mhutchie.git-graph"
+        ]
+      }
+    },
+    "features": {
+      "ghcr.io/devcontainers/features/node:1": {
+        "version": "lts"
+      }
+    }
+  }

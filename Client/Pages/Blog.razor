@@ -1,0 +1,33 @@
+@page "/blog"
+
+@using Shared.Models
+@inject HttpClient Http
+
+<h1>Blog</h1>
+
+@if (posts == null)
+{
+  <p>Loading...</p>
+}
+else
+{
+  @foreach (var post in posts)
+  {
+    <div class="post">
+      <h2>@post.Title</h2>
+      <p>@post.Content</p>
+      <small>@post.CreatedAt.ToLocalTime()</small>
+      <hr />
+    </div>
+  }
+}
+
+@code {
+  List<BlogPost>? posts;
+
+  protected override async Task OnInitializedAsync()
+  {
+    posts = await Http.GetFromJsonAsync<List<BlogPost>>("api/Blog");
+  }
+}
+

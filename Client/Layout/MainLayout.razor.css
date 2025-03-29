@@ -1,0 +1,22 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.top-bar {
+    background-color: #1f1f1f;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    color: var(--text-accent);
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-decoration: none;
+}
