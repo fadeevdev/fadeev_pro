@@ -36,7 +36,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "Client/publish/wwwroot/"
           target: ${{ secrets.VPS_DEPLOY_PATH }}
-          strip_components: 1
+          strip_components: 3
 
       # - name: Reload Nginx
       #   uses: appleboy/ssh-action@v0.1.10
