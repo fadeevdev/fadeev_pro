@@ -1,0 +1,73 @@
+/* Timeline container */
+.timeline {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-left: 3px solid #444;
+    padding-left: 2rem;
+}
+
+/* Timeline item */
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+/* Dot near date */
+.timeline-item-date-start::before {
+    content: "";
+    position: absolute;
+    left: -2.5rem;
+    top: 0.3rem;
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-text);
+    border-radius: 50%;
+    border: 2px solid var(--color-bg);
+    box-shadow: 0 0 0 2px var(--color-text);
+}
+
+/* Dates */
+.timeline-item-date-start {
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+/* Company name */
+.timeline-item-company-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+}
+
+/* Position title */
+.timeline-item-name {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Description */
+.timeline-item-description {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Skills list */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+
+/* Skill badges */
+.skills li {
+    background-color: var(--color-item-background);
+    border: 1px solid #555;
+    padding: 0.3rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+}

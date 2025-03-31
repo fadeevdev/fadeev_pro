@@ -4,6 +4,7 @@
     --font-sans: 'Inter', sans-serif;
     --color-bg: #000;
     --color-text: #fff;
+    --color-item-background: #222;
     --transition: all 0.2s ease-in-out;
 }
 
@@ -24,6 +25,7 @@ body {
 body.light {
     --color-bg: #ffffff;
     --color-text: #000000;
+    --color-item-background: #f0f0f0;
 }
 
 body.light .bg-black {
