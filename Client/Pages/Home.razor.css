@@ -1,73 +1,93 @@
-/* Timeline container */
+/* === Timeline === */
 .timeline {
     position: relative;
-    margin: 0;
-    padding: 0;
     list-style: none;
     border-left: 3px solid #444;
     padding-left: 2rem;
 }
 
-/* Timeline item */
 .timeline-item {
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
 }
 
-/* Dot near date */
+.timeline-item:nth-child(even) {
+    animation-delay: 0.2s;
+}
+
+.timeline-item:nth-child(odd) {
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.timeline-item-date-start {
+    font-weight: bold;
+    color: #aaa;
+    margin-bottom: 0.3rem;
+    position: relative;
+}
+
 .timeline-item-date-start::before {
     content: "";
     position: absolute;
     left: -2.5rem;
-    top: 0.3rem;
-    width: 10px;
-    height: 10px;
+    top: 0.1rem;
+    width: 12px;
+    height: 12px;
     background-color: var(--color-text);
     border-radius: 50%;
     border: 2px solid var(--color-bg);
     box-shadow: 0 0 0 2px var(--color-text);
 }
 
-/* Dates */
-.timeline-item-date-start {
-    font-weight: bold;
-    margin-bottom: 0.3rem;
-}
-
-/* Company name */
 .timeline-item-company-name {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 0.2rem;
 }
 
-/* Position title */
 .timeline-item-name {
     font-size: 1rem;
     margin-bottom: 0.5rem;
 }
 
-/* Description */
 .timeline-item-description {
-    font-size: 0.95rem;
     margin-bottom: 0.5rem;
+    font-size: 0.95rem;
 }
 
-/* Skills list */
 .skills {
+    list-style: none;
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
     padding: 0;
-    list-style: none;
-    margin: 0;
 }
 
-/* Skill badges */
 .skills li {
     background-color: var(--color-item-background);
     border: 1px solid #555;
-    padding: 0.3rem 0.6rem;
-    border-radius: 999px;
+    padding: 0.3rem 0.7rem;
     font-size: 0.8rem;
+    border-radius: 999px;
+}
+
+/* === Responsive === */
+@media (max-width: 600px) {
+    .timeline {
+        padding-left: 1rem;
+    }
+
+    .timeline-item-date-start::before {
+        left: -1.5rem;
+    }
 }
